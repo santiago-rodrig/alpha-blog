@@ -1,4 +1,4 @@
-<%= form_with(model: @article, url: articles_path, local: true, html: { class: 'shadow p-3 border' }) do |f| %>
+<%= form_with(model: @article, local: true, html: { class: 'shadow p-3 border' }) do |f| %>
   <div class="form-group">
     <%= f.label :title %>
     <%= f.text_field :title, class: 'form-control', aria: { describedby: 'title of the article' } , placeholder: 'Hamlet' %>

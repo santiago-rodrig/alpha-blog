@@ -5,4 +5,3 @@ Rails.application.routes.draw do
   # new, create, index, show, edit, update, destroy
   resources :articles
 end
-

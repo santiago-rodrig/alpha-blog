@@ -1,8 +1,31 @@
-<h1>Showing article details</h1>
-<p><strong>Title: </strong><%= @article.title %></p>
-<p><strong>Description: </strong><%= @article.description %></p>
-<p>
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Delete', article_path(@article), method: :delete, data: { confirm: 'Are you sure?' } %> |
-<%= link_to 'Return to articles listing', articles_path %>
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-12 mt-5 mb-4">
+      <h1 class="text-center"><%= @article.title %></h1>
+    </div>
+    <div class="col-12 mb-4 col-md-8">
+      <div class="container shadow border p-3">
+        <p>
+          <%= @article.description %>
+        </p>
+      </div>
+    </div>
+    <div class="col-12 col-md-4">
+      <div class="container shadow border p-3">
+        <p>
+          Written by the author
+        </p>
+        <p>
+          Created <%= time_ago_in_words(@article.created_at) %> ago.
+        </p>
+        <p>
+          Updated <%= time_ago_in_words(@article.updated_at) %> ago.
+        </p>
+        <div class="btn-group mt-3" role="group" aria-label="Article actions">
+          <%= link_to 'Edit', edit_article_path(@article), class: 'btn btn-dark', role: 'button', type: 'button' %>
+          <%= link_to 'Delete', @article, class: 'btn btn-danger', role: 'button', type: 'button', data: { confirm: 'Are you sure?' } %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

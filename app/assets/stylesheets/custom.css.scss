@@ -1,14 +1,44 @@
 @import 'bootstrap/dist/css/bootstrap';
 
 .navbar {
-  background-color: #fdf6ea !important;
+  background-color: #222 !important;
 }
 
-.navbar-brand {
-  font-size: 3rem;
+.nav-link {
+  color: #eee !important;
 }
 
-h1 {
-  color: red;
+body {
+  min-height: 100vh;
+}
+
+#logo {
+  color: #eee;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+#home-container {
+  margin-top: 25px;
+}
+
+#people-image {
+  background-image: image-url('people.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  height: 375px;
+}
+
+.image-source {
+  margin-top: 10px;
+  color: #888;
+}
+
+#main-footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
 }
 

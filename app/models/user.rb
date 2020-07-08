@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :articles
+
   validates(
     :name,
     uniqueness: { case_sensitive: false },
@@ -18,3 +20,4 @@ class User < ApplicationRecord
     }
   )
 end
+

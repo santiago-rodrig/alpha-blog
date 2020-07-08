@@ -1,27 +1,35 @@
-<h1>Listing all articles</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th colspan="3">Actions</th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="container">
+  <div class="row" id="articles-listing">
+    <div class="col-12" id="articles-listing-heading">
+      <h1 class="text-center">Listing all articles</h1>
+    </div>
     <% @articles.each do |article| %>
-      <tr>
-        <td><%= article.title %></td>
-        <td><%= article.description %></td>
-        <td><%= link_to 'Show', article_path(article) %></td>
-        <td><%= link_to 'Edit', edit_article_path(article) %></td>
-        <td><%= link_to 'Delete', article_path(article), method: :delete, data: { confirm: 'Are you sure' } %></td>
-      </tr>
+    <div class="col-12 col-sm-10 col-md-6 article">
+      <div class="card text-center shadow">
+        <div class="card-header">
+          Article author
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">
+            <%= article.title %>
+          </h5>
+          <p class="card-text">
+            <%= truncate article.description, length: 100 %>
+          </p>
+          <div class="btn-group" role="group" aria-label="Article actions">
+            <%= link_to 'Show', article, class: 'btn btn-dark', type: 'button' %>
+            <%= link_to 'Edit', edit_article_path(article), class: 'btn btn-dark' %>
+            <%= link_to 'Delete', article, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+          </div>
+        </div>
+        <div class="card-footer text-muted">
+          <small>
+            Created <%= time_ago_in_words(article.created_at) %> ago.
+            Edited <%= time_ago_in_words(article.updated_at) %> ago.
+          </small>
+        </div>
+      </div>
+    </div>
     <% end %>
-  </tbody>
-</table>
-
-<p>
-  <%= link_to 'Create a new article', new_article_path %>
-</p>
+  </div>
+</div>

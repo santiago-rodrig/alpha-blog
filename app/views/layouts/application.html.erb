@@ -5,6 +5,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -15,7 +16,10 @@
     <%= yield %>
     <footer id="main-footer" class="py-4 bg-dark text-light">
       <div class="container text-center">
-        <small>Copyright &copy; Alpha Blog</small>
+        <small>
+          Copyright &copy;
+          <%= link_to 'Santiago Rodriguez', 'https://santiagorodriguez.dev', target: '_blank', class: 'text-light' %>
+        </small>
       </div>
     </footer>
   </body>

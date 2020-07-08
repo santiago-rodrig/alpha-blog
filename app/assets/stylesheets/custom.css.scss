@@ -1,21 +1,9 @@
 @import 'bootstrap/dist/css/bootstrap';
 
-.navbar {
-  background-color: #222 !important;
-}
-
-.nav-link {
-  color: #eee !important;
-}
-
 body {
   min-height: 100vh;
-}
-
-#logo {
-  color: #eee;
-  font-weight: 700;
-  font-size: 1.5rem;
+  position: relative;
+  padding-bottom: 150px;
 }
 
 #home-container {
@@ -42,3 +30,15 @@ body {
   left: 0;
 }
 
+
+#articles-listing {
+  padding-top: 25px;
+}
+
+#articles-listing-heading {
+  margin-bottom: 10px;
+}
+
+.article {
+  margin-top: 30px;
+}

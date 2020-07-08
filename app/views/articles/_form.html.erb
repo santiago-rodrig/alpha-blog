@@ -1,30 +1,13 @@
-<% if @article.errors.any? %>
-  <h2>The following errors prevented the article from being saved</h2>
+<%= form_with(model: @article, url: articles_path, local: true, html: { class: 'shadow p-3 border' }) do |f| %>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control', aria: { describedby: 'title of the article' } , placeholder: 'Hamlet' %>
+  </div>
 
-  <ul>
-    <% @article.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-  </ul>
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description, rows: 5, class: 'form-control', aria: { describedby: 'description of the article' }, placeholder: 'To be or not to be, that is the question...' %>
+  </div>
+
+  <%= f.submit(class: 'btn btn-primary') %>
 <% end %>
-
-<%= form_with(model: @article, url: articles_path, local: true) do |f| %>
-  <p>
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </p>
-
-  <p>
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </p>
-
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
-
-<p>
-<%= link_to 'Return to articles listing', articles_path %>
-</p>
-

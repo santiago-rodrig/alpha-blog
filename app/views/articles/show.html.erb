@@ -13,13 +13,15 @@
     <div class="col-12 col-md-4">
       <div class="container shadow border p-3">
         <p>
-          Written by the author
+        Written by the <strong><%= @article.user.name %></strong>
         </p>
         <p>
-          Created <%= time_ago_in_words(@article.created_at) %> ago.
+        Created
+        <strong><%= time_ago_in_words(@article.created_at) %> ago</strong>.
         </p>
         <p>
-          Updated <%= time_ago_in_words(@article.updated_at) %> ago.
+        Updated
+        <strong><%= time_ago_in_words(@article.updated_at) %> ago</strong>.
         </p>
         <div class="btn-group mt-3" role="group" aria-label="Article actions">
           <%= link_to 'Edit', edit_article_path(@article), class: 'btn btn-dark', role: 'button', type: 'button' %>

@@ -43,3 +43,6 @@ yarn-debug.log*
 # vim backup files
 *.swp
 *.swo
+
+# sublime workspace files
+*.sublime-workspace

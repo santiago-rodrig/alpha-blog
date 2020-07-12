@@ -21,5 +21,7 @@ class User < ApplicationRecord
       message: 'format is invalid'
     }
   )
+
+  has_secure_password
 end
 

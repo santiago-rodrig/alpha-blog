@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:notice] = 'Welcome to the Alpha Blog, you have successfully signed up.'
+      flash[:success] = 'Welcome to the Alpha Blog, you have successfully signed up.'
       session[:user_id] = @user.id
       redirect_to @user
     else
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
   def destroy
     msg = "The user #{@user.name} and all its articles have been deleted."
     @user.destroy
-    flash[:notice] = msg
+    flash[:info] = msg
     redirect_to users_path
   end
 
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      flash[:notice] = 'Account details successfully updated.'
+      flash[:success] = 'Account details successfully updated.'
       redirect_to @user
     else
       render :edit
@@ -49,7 +49,7 @@ class UsersController < ApplicationController
 
   def ensure_same_user
     unless current_user == @user
-      flash[:notice] = 'That account is not yours.'
+      flash[:danger] = 'That account is not yours.'
       redirect_to root_path
     end
   end

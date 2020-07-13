@@ -19,7 +19,7 @@ class ArticlesController < ApplicationController
   def create
     @article = current_user.articles.build(article_params)
     if @article.save
-      flash[:notice] = "#{ACTION_PREFIX}created"
+      flash[:success] = "#{ACTION_PREFIX}created"
       redirect_to article_path(@article)
     else
       render :new
@@ -31,7 +31,7 @@ class ArticlesController < ApplicationController
 
   def update
     if @article.update(article_params)
-      flash[:notice] = "#{ACTION_PREFIX}updated"
+      flash[:success] = "#{ACTION_PREFIX}updated"
       redirect_to @article
     else
       render :edit
@@ -40,7 +40,7 @@ class ArticlesController < ApplicationController
 
   def destroy
     @article.destroy
-    flash[:notice] = "#{ACTION_PREFIX}deleted"
+    flash[:info] = "#{ACTION_PREFIX}deleted"
     redirect_to articles_url
   end
 
@@ -48,7 +48,7 @@ class ArticlesController < ApplicationController
 
   def ensure_same_user
     unless current_user == @article.user
-      flash[:notice] = 'You are not the owner of this article.'
+      flash[:danger] = 'You are not the owner of this article.'
       redirect_to root_path
     end
   end

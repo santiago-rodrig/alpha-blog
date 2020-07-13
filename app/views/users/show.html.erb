@@ -13,6 +13,10 @@
         <dt>Articles written</dt>
         <dd><%= @user.articles.count %></dd>
       </dl>
+      <div class="btn-group" role="group" aria-label="user actions">
+        <%= link_to 'Edit', edit_user_path(@user), class: 'btn btn-dark' %>
+        <%= link_to 'Delete', @user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+      </div>
     </div>
     <div class="col-12 mt-4">
       <div class="row">

@@ -15,10 +15,7 @@
         <dt>Member since</dt>
         <dd><%= time_ago_in_words(@user.created_at) %> ago</dd>
       </dl>
-      <div class="btn-group" role="group" aria-label="user actions">
-        <%= link_to 'Edit', edit_user_path(@user), class: 'btn btn-dark' %>
-        <%= link_to 'Delete', @user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
-      </div>
+      <%= render_show_user_actions @user %>
     </div>
     <div class="col-12 mt-4">
       <div class="row">

@@ -14,13 +14,6 @@
     <%= render 'layouts/navigation' %>
     <%= render 'layouts/messages' %>
     <%= yield %>
-    <footer id="main-footer" class="py-4 bg-dark text-light">
-      <div class="container text-center">
-        <small>
-          Copyright &copy;
-          <%= link_to 'Santiago Rodriguez', 'https://santiagorodriguez.dev', target: '_blank', class: 'text-light' %>
-        </small>
-      </div>
-    </footer>
+    <%= render 'layouts/footer' %>
   </body>
 </html>

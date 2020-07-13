@@ -12,6 +12,8 @@
         <dd><%= @user.email %></dd>
         <dt>Articles written</dt>
         <dd><%= @user.articles.count %></dd>
+        <dt>Member since</dt>
+        <dd><%= time_ago_in_words(@user.created_at) %> ago</dd>
       </dl>
       <div class="btn-group" role="group" aria-label="user actions">
         <%= link_to 'Edit', edit_user_path(@user), class: 'btn btn-dark' %>

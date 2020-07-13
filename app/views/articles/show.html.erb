@@ -16,15 +16,15 @@
           <%= gravatar_for @article.user, 80 %>
         </div>
         <p>
-        Written by the <strong><%= @article.user.name %></strong>
+        <strong>Written</strong> by <%= link_to @article.user.name, @article.user %>.
         </p>
         <p>
-        Created
-        <strong><%= time_ago_in_words(@article.created_at) %> ago</strong>.
+        <strong>Created</strong>
+        <%= time_ago_in_words(@article.created_at) %> ago.
         </p>
         <p>
-        Updated
-        <strong><%= time_ago_in_words(@article.updated_at) %> ago</strong>.
+        <strong>Updated</strong>
+        <%= time_ago_in_words(@article.updated_at) %> ago.
         </p>
         <div class="btn-group mt-3" role="group" aria-label="Article actions">
           <%= link_to 'Edit', edit_article_path(@article), class: 'btn btn-dark', role: 'button', type: 'button' %>

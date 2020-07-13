@@ -3,6 +3,7 @@ class ArticlesController < ApplicationController
 
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   before_action :ensure_logged_in, except: [:index, :show]
+  before_action :ensure_same_user, only: [:edit, :update, :destroy]
 
   def show
   end
@@ -44,6 +45,13 @@ class ArticlesController < ApplicationController
   end
 
   private
+
+  def ensure_same_user
+    unless current_user == @article.user
+      flash[:notice] = 'You are not the owner of this article.'
+      redirect_to root_path
+    end
+  end
 
   def set_article
     @article = Article.find(params[:id])

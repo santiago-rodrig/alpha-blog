@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:update, :edit, :show, :destroy]
   before_action :ensure_logged_in, except: [:new, :create, :index, :show]
+  before_action :ensure_same_user, only: [:edit, :update, :destroy]
 
   def new
     @user = User.new
@@ -45,6 +46,13 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def ensure_same_user
+    unless current_user == @user
+      flash[:notice] = 'That account is not yours.'
+      redirect_to root_path
+    end
+  end
 
   def set_user
     @user = User.find(params[:id])

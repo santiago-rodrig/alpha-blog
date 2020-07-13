@@ -32,7 +32,7 @@ module ArticlesHelper
           #{link_to 'Edit', edit_article_path(@article), class: 'btn btn-dark', role: 'button', type: 'button'}
           #{link_to 'Delete', @article, class: 'btn btn-danger', role: 'button', type: 'button', data: { confirm: 'Are you sure?' }}
         </div>
-      )
+      ).html_safe
     end
 
     nil

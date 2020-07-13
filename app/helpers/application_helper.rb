@@ -18,9 +18,13 @@ module ApplicationHelper
   end
 
   def render_account_access
-    if controller.current_user
+    user = controller.current_user
+    if user
       return %(
-        <li class="nav-item mr-2">
+        <li class="nav-item mr-3 text-light text-muted">
+          Logged as #{user.name}
+        </li>
+        <li class="nav-item">
           #{link_to 'Logout', logout_path, method: :delete, class: 'btn btn-sm btn-light'}
         </li>
       ).html_safe
@@ -34,5 +38,22 @@ module ApplicationHelper
         </li>
       ).html_safe
     end
+  end
+
+  def render_article_actions
+    if controller.current_user
+      return %(
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Actions
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            #{link_to 'New article', new_article_path, class: 'dropdown-item'}
+          </div>
+        </li>
+      ).html_safe
+    end
+
+    nil
   end
 end

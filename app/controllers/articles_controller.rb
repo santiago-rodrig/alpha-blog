@@ -2,6 +2,7 @@ class ArticlesController < ApplicationController
   ACTION_PREFIX = 'Article was successfully '
 
   before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :ensure_logged_in, except: [:index, :show]
 
   def show
   end

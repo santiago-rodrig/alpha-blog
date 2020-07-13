@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:update, :edit, :show, :destroy]
+  before_action :ensure_logged_in, except: [:new, :create, :index, :show]
+
   def new
     @user = User.new
   end
@@ -8,7 +10,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:notice] = 'Welcome to the Alpha Blog, you have successfully signed up.'
-      redirect_to articles_path
+      session[:user_id] = @user.id
+      redirect_to @user
     else
       render :new
     end

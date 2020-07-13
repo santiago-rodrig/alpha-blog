@@ -12,6 +12,9 @@
     </div>
     <div class="col-12 col-md-4">
       <div class="container shadow border p-3">
+        <div class="mb-3">
+          <%= gravatar_for @article.user, 80 %>
+        </div>
         <p>
         Written by the <strong><%= @article.user.name %></strong>
         </p>

@@ -20,15 +20,10 @@
           <%= link_to 'New article', new_article_path, class: 'dropdown-item' %>
         </div>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Account
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <%= link_to 'Profile', user_path(1), class: 'dropdown-item' %>
-          <%= link_to 'Edit', edit_user_path(1), class: 'dropdown-item' %>
-        </div>
-      </li>
+      <%= render_account_dropdown %>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      <%= render_account_access %>
     </ul>
   </div>
 </nav>

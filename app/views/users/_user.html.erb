@@ -1,0 +1,22 @@
+<div class="col-12 col-md-4 d-flex shadow rounded border p-3">
+  <div class="align-self-start">
+    <%= gravatar_for user, 80 %>
+  </div>
+  <div class="ml-4">
+    <dl>
+      <dt>Name</dt>
+      <dd><%= user.name %></dd>
+      <dt>Email</dt>
+      <dd><%= user.email %></dd>
+      <dt>Articles written</dt>
+      <dd><%= user.articles.count %></dd>
+      <dt>Member since</dt>
+      <dd><%= time_ago_in_words(user.created_at) %> ago</dd>
+    </dl>
+    <div class="btn-group" role="group" aria-label="user actions">
+      <%= link_to 'Show', user, class: 'btn btn-dark' %>
+      <%= link_to 'Edit', edit_user_path(user), class: 'btn btn-dark' %>
+      <%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+    </div>
+  </div>
+</div>

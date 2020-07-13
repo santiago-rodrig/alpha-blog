@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:update, :edit, :show]
+  before_action :set_user, only: [:update, :edit, :show, :destroy]
   def new
     @user = User.new
   end
@@ -14,7 +14,18 @@ class UsersController < ApplicationController
     end
   end
 
+  def index
+    @users = User.all
+  end
+
   def edit
+  end
+
+  def destroy
+    msg = "The user #{@user.name} and all its articles have been deleted."
+    @user.destroy
+    flash[:notice] = msg
+    redirect_to users_path
   end
 
   def show
@@ -24,7 +35,7 @@ class UsersController < ApplicationController
   def update
     if @user.update(user_params)
       flash[:notice] = 'Account details successfully updated.'
-      redirect_to articles_path
+      redirect_to @user
     else
       render :edit
     end

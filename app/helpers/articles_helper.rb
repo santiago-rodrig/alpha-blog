@@ -24,4 +24,17 @@ module ArticlesHelper
       ).html_safe
     end
   end
+
+  def render_show_article_actions(article)
+    if controller.current_user == article.user
+      return %(
+        <div class="btn-group mt-3" role="group" aria-label="Article actions">
+          #{link_to 'Edit', edit_article_path(@article), class: 'btn btn-dark', role: 'button', type: 'button'}
+          #{link_to 'Delete', @article, class: 'btn btn-danger', role: 'button', type: 'button', data: { confirm: 'Are you sure?' }}
+        </div>
+      )
+    end
+
+    nil
+  end
 end

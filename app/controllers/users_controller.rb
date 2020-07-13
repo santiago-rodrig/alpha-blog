@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:update, :edit]
+  before_action :set_user, only: [:update, :edit, :show]
   def new
     @user = User.new
   end
@@ -15,6 +15,10 @@ class UsersController < ApplicationController
   end
 
   def edit
+  end
+
+  def show
+    @articles = @user.articles.order('created_at DESC')
   end
 
   def update

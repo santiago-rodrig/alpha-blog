@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-12 col-md-5 text-center">
+      <h1 class="mb-4 pb-3">
+        <%= "#{@user.name}'s" %> profile
+      </h1>
+      <%= gravatar_for @user, 300 %>
+    </div>
+    <div class="col-12 col-md-5 align-self-center border p-3">
+      <dl>
+        <dt>Email</dt>
+        <dd><%= @user.email %></dd>
+        <dt>Articles written</dt>
+        <dd><%= @user.articles.count %></dd>
+      </dl>
+    </div>
+    <div class="col-12 mt-4">
+      <div class="row">
+        <div class="col-12 pt-3">
+          <h2 class="text-center">Latest articles</h2>
+        </div>
+        <%= render @articles %>
+      </div>
+    </div>
+  </div>
+</div>

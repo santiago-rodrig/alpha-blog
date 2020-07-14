@@ -8,6 +8,7 @@ Bundler.require(*Rails.groups)
 
 module AlphaBlog
   class Application < Rails::Application
+    config.add_autoload_paths_to_load_path
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
 

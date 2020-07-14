@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1 class="text-center">Listing all categories</h1>
+    </div>
+    <div class="col-12 my-3">
+      <div class="d-flex justify-content-center">
+        <%= will_paginate @categories, class: 'digg_pagination' %>
+      </div>
+    </div>
+    <%= render @categories %>
+    <div class="col-12 mt-5">
+      <div class="d-flex justify-content-center">
+        <%= will_paginate @categories, class: 'digg_pagination' %>
+      </div>
+    </div>
+  </div>
+</div>
+

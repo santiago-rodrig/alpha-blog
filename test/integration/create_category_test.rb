@@ -1,6 +1,18 @@
 require 'test_helper'
 
 class CreateCategoryTest < ActionDispatch::IntegrationTest
+  setup do
+    post(
+      login_url,
+      params: {
+        credentials: {
+          email: users(:two).email,
+          password: 'powerful'
+        }
+      }
+    )
+  end
+
   test 'get category form and create category' do
     get '/categories/new'
     assert_response :success

@@ -3,6 +3,16 @@ require 'test_helper'
 class CategoriesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @category = categories(:one)
+
+    post(
+      login_url,
+      params: {
+        credentials: {
+          email: users(:two).email,
+          password: 'powerful'
+        }
+      }
+    )
   end
 
   test "should get index" do
@@ -21,6 +31,15 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_redirected_to category_url(Category.last)
+  end
+
+  test "should not create category unless admin" do
+    delete logout_url
+    assert_no_difference('Category.count') do
+      post categories_url, params: { category: { name: 'travel' } }
+    end
+
+    assert_redirected_to categories_url
   end
 
   test "should show category" do

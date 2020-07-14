@@ -12,7 +12,8 @@ user = User.create(
   name: 'jen smith',
   email: 'jen.smith@example.org',
   password: '123456',
-  password_confirmation: '123456'
+  password_confirmation: '123456',
+  admin: true
 )
 
 10.times do |i|

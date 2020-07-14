@@ -21,5 +21,11 @@ module CategoriesHelper
       ).html_safe
     end
   end
+
+  def render_categories_badges(categories)
+    categories.to_a.map do |c|
+      link_to c.name, c, class: 'badge badge-secondary'
+    end.join(', ').html_safe
+  end
 end
 

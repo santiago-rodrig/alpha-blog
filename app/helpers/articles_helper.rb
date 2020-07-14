@@ -3,12 +3,23 @@ module ArticlesHelper
     unless controller.controller_name == 'users'
       return %(
         <div class="card-header">
-          #{link_to article.user.name, article.user}
+          <h5>
+            #{link_to article.user.name, article.user}
+          </p>
+          <h5>
+            #{render_categories_badges(article.categories)}
+          </p>
         </div>
       ).html_safe
     end
 
-    nil
+    %(
+      <div class="card-header">
+        <p>
+          #{render_categories_badges(article.categories)}
+        </p>
+      </div>
+    ).html_safe
   end
 
   def render_article_item_actions(article)

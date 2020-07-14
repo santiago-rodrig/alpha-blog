@@ -6,17 +6,17 @@ class SessionsController < ApplicationController
     user = User.find_by(email: login_params[:email])
     if user&.authenticate(login_params[:password])
       session[:user_id] = user.id
-      flash[:notice] = 'You have successfully logged in.'
+      flash[:info] = 'You have successfully logged in.'
       redirect_to user
     else
-      flash[:notice] = 'Wrong credentials.'
+      flash[:danger] = 'Wrong credentials.'
       render :new
     end
   end
 
   def destroy
     session.delete(:user_id)
-    flash[:notice] = 'You have successfully logged out.'
+    flash[:info] = 'You have successfully logged out.'
     redirect_to root_path
   end
 

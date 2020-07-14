@@ -51,20 +51,33 @@ module ApplicationHelper
     end
   end
 
-  def render_article_actions
-    if controller.current_user
+  def render_actions
+    if current_user&.admin?
       return %(
       <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Actions
-      </a>
-      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-      #{link_to 'New article', new_article_path, class: 'dropdown-item'}
-      </div>
-      </li>
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Actions
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        #{link_to 'New article', new_article_path, class: 'dropdown-item'}
+        #{link_to 'New category', new_category_path, class: 'dropdown-item'}
+        </div>
+        </li>
+      ).html_safe
+    elsif current_user
+      return %(
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Actions
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        #{link_to 'New article', new_article_path, class: 'dropdown-item'}
+        </div>
+        </li>
       ).html_safe
     end
 
     nil
   end
 end
+

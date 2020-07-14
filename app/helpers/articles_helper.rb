@@ -12,7 +12,7 @@ module ArticlesHelper
   end
 
   def render_article_item_actions(article)
-    if current_user == article.user || current_user.admin?
+    if current_user == article.user || current_user&.admin?
       return %(
         #{link_to 'Show', article, class: 'btn btn-dark', type: 'button'}
         #{link_to 'Edit', edit_article_path(article), class: 'btn btn-dark'}
@@ -26,7 +26,7 @@ module ArticlesHelper
   end
 
   def render_show_article_actions(article)
-    if current_user == article.user || current_user.admin?
+    if current_user == article.user || current_user&.admin?
       return %(
         <div class="btn-group mt-3" role="group" aria-label="Article actions">
           #{link_to 'Edit', edit_article_path(@article), class: 'btn btn-dark', role: 'button', type: 'button'}
@@ -38,3 +38,4 @@ module ArticlesHelper
     nil
   end
 end
+

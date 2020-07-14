@@ -5,7 +5,7 @@ module UsersHelper
   end
 
   def render_user_item_actions(user)
-    if current_user == user
+    if current_user == user || current_user.admin?
       return %(
         #{link_to 'Show', user, class: 'btn btn-dark'}
         #{link_to 'Edit', edit_user_path(user), class: 'btn btn-dark'}
@@ -19,7 +19,7 @@ module UsersHelper
   end
 
   def render_show_user_actions(user)
-    if current_user == user
+    if current_user == user || current_user.admin?
       return %(
         <div class="btn-group" role="group" aria-label="user actions">
           #{link_to 'Edit', edit_user_path(@user), class: 'btn btn-dark'}

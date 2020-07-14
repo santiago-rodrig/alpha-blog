@@ -27,6 +27,7 @@ class UsersController < ApplicationController
 
   def destroy
     msg = "The user #{@user.name} and all its articles have been deleted."
+    session[:user_id] = nil if current_user == @user
     @user.destroy
     flash[:info] = msg
     redirect_to users_path
@@ -48,7 +49,7 @@ class UsersController < ApplicationController
   private
 
   def ensure_same_user
-    unless current_user == @user
+    unless current_user == @user || current_user.admin?
       flash[:danger] = 'That account is not yours.'
       redirect_to root_path
     end

@@ -47,7 +47,7 @@ class ArticlesController < ApplicationController
   private
 
   def ensure_same_user
-    unless current_user == @article.user
+    unless current_user == @article.user || current_user.admin?
       flash[:danger] = 'You are not the owner of this article.'
       redirect_to root_path
     end

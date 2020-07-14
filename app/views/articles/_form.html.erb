@@ -9,5 +9,10 @@
     <%= f.text_area :description, rows: 5, class: 'form-control', aria: { describedby: 'description of the article' }, placeholder: 'To be or not to be, that is the question...' %>
   </div>
 
+  <div class="form-group">
+    <%= f.label :category, 'Category (multiple selection)' %>
+    <%= f.collection_select(:category_ids, Category.all, :id, :name, {}, { multiple: true, class: 'custom-select', aria: { describedby: 'categories of the article' } }) %>
+  </div>
+
   <%= f.submit(class: 'btn btn-primary') %>
 <% end %>

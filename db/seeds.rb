@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Article.where(user_id: nil).delete_all
 User.all.each { |u| u.destroy }
 
 user = User.create(

@@ -3,7 +3,7 @@ module CategoriesHelper
     edit_link = link_to 'Edit', edit_category_path(category),
       class: 'btn btn-dark'
     delete_link = link_to 'Delete', category, method: :delete,
-      data: { confirm: 'Are you sure?' }, class: 'btn btn-dark'
+      data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
     if current_user&.admin?
       return %(
       <div class="d-flex justify-content-center mt-3">

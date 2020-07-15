@@ -1,7 +1,12 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col-12 mb-4">
-      <h1 class="text-center"><%= @category.name %></h1>
+      <h1 class="text-center">
+        <%= @category.name %>
+        <small class="text-muted">
+          <%= pluralize(@category.articles.count, 'article') %>
+        </small>
+      </h1>
       <%= render_show_category_actions(@category) %>
     </div>
     <div class="col-12 my-3">
@@ -18,3 +23,4 @@
   </div>
   </div>
 </div>
+

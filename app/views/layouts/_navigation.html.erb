@@ -7,19 +7,19 @@
     <%= link_to 'Alpha Blog', root_path, class: 'navbar-brand', id: 'logo' %>
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <%= link_to 'Articles', articles_path, class: 'nav-link' %>
+        <%= render_nav_link 'Articles', articles_path %>
       </li>
       <li class="nav-item">
-        <%= link_to 'Categories', categories_path, class: 'nav-link' %>
+        <%= render_nav_link 'Categories', categories_path %>
       </li>
       <li class="nav-item">
-        <%= link_to 'Bloggers', users_path, class: 'nav-link' %>
+        <%= render_nav_link 'Bloggers', users_path %>
       </li>
       <%= render_actions %>
       <%= render_account_dropdown %>
     </ul>
-    <ul class="navbar-nav ml-auto">
-      <%= render_account_access %>
-    </ul>
   </div>
+  <ul class="navbar-nav d-flex flex-row ml-auto">
+    <%= render_account_access %>
+  </ul>
 </nav>

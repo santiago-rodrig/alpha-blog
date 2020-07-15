@@ -9,9 +9,7 @@
           <%= @article.description %>
         </p>
       </div>
-      <div class="shadow border p-3">
-        <%= render_categories_badges(@article.categories) %>
-      </div>
+      <%= render_article_categories @article %>
     </div>
     <div class="col-12 col-md-4">
       <div class="container shadow border p-3">

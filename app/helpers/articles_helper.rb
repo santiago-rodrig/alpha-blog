@@ -1,4 +1,22 @@
 module ArticlesHelper
+  def render_article_categories(article)
+    result = nil
+    if article.categories.any?
+      result = %(
+        <div class="shadow border p-3">
+          #{render_categories_badges(article.categories)}
+        </div>
+      ).html_safe
+    else
+      result = %(
+        <div class="shadow border p-3">
+          <small class="text-muted">This article has no categories</small>
+        </div>
+      ).html_safe
+    end
+    result
+  end
+
   def article_header(article)
     unless controller.controller_name == 'users'
       return %(

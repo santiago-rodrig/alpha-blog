@@ -4,6 +4,9 @@
       <h4 class="card-title">
         <%= link_to category.name, category %>
       </h4>
+      <p>
+      <%= pluralize(category.articles.count, 'article') %>
+      </p>
       <%= render_category_actions(category) %>
     </div>
     <div class="card-footer text-muted">

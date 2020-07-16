@@ -1,3 +1,5 @@
+![licence badge](https://img.shields.io/badge/license-MIT-green)
+
 # Alpha Blog
 
 [live version](https://srodrig-alpha-blog.herokuapp.com/)

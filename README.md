@@ -10,7 +10,7 @@
 
 ![app demo gif](./doc/demo.gif)
 
-A blog built with Ruby on Rails 6, among its features are included
+A blog built with Ruby on Rails 6, among its features is included
 sessions management, articles, and categories. It is fully tested, you may
 use it with confidence.
 

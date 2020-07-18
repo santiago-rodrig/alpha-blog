@@ -25,6 +25,8 @@ use it with confidence.
 
 ## Requirements
 
+- [Ruby](https://www.ruby-lang.org/en/) (~> 2.6)
+- [Ruby on Rails](https://rubyonrails.org/) (~> 6.0.3)
 - [Node](https://nodejs.org/en/) (~> v14.5.0)
 - [Yarn](https://yarnpkg.com/getting-started/install) (~> 1.22.4)
 - [Bundler](https://github.com/rubygems/rubygems/tree/master/bundler) (~> 2.1.4)
